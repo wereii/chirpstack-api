@@ -849,7 +849,9 @@ proto.ns.DeviceProfile.toObject = function(includeInstance, msg) {
     supportsJoin: msg.getSupportsJoin(),
     rfRegion: msg.getRfRegion(),
     supports32bitFCnt: msg.getSupports32bitFCnt(),
-    adrAlgorithmId: msg.getAdrAlgorithmId()
+    adrAlgorithmId: msg.getAdrAlgorithmId(),
+    saveGwRxOnJoin: msg.getSaveGwRxOnJoin(),
+    syncSecurityContextOnJoin: msg.getSyncSecurityContextOnJoin()
   };
 
   if (includeInstance) {
@@ -969,6 +971,14 @@ proto.ns.DeviceProfile.deserializeBinaryFromReader = function(msg, reader) {
     case 21:
       var value = /** @type {string} */ (reader.readString());
       msg.setAdrAlgorithmId(value);
+      break;
+    case 22:
+      var value = /** @type {boolean} */ (reader.readBool());
+      msg.setSaveGwRxOnJoin(value);
+      break;
+    case 23:
+      var value = /** @type {boolean} */ (reader.readBool());
+      msg.setSyncSecurityContextOnJoin(value);
       break;
     default:
       reader.skipField();
@@ -1152,6 +1162,20 @@ proto.ns.DeviceProfile.prototype.serializeBinaryToWriter = function (writer) {
   if (f.length > 0) {
     writer.writeString(
       21,
+      f
+    );
+  }
+  f = this.getSaveGwRxOnJoin();
+  if (f) {
+    writer.writeBool(
+      22,
+      f
+    );
+  }
+  f = this.getSyncSecurityContextOnJoin();
+  if (f) {
+    writer.writeBool(
+      23,
       f
     );
   }
@@ -1518,6 +1542,40 @@ proto.ns.DeviceProfile.prototype.getAdrAlgorithmId = function() {
 /** @param {string} value  */
 proto.ns.DeviceProfile.prototype.setAdrAlgorithmId = function(value) {
   jspb.Message.setField(this, 21, value);
+};
+
+
+/**
+ * optional bool save_GW_RX_on_join = 22;
+ * Note that Boolean fields may be set to 0/1 when serialized from a Java server.
+ * You should avoid comparisons like {@code val === true/false} in those cases.
+ * @return {boolean}
+ */
+proto.ns.DeviceProfile.prototype.getSaveGwRxOnJoin = function() {
+  return /** @type {boolean} */ (jspb.Message.getFieldProto3(this, 22, false));
+};
+
+
+/** @param {boolean} value  */
+proto.ns.DeviceProfile.prototype.setSaveGwRxOnJoin = function(value) {
+  jspb.Message.setField(this, 22, value);
+};
+
+
+/**
+ * optional bool sync_security_context_on_join = 23;
+ * Note that Boolean fields may be set to 0/1 when serialized from a Java server.
+ * You should avoid comparisons like {@code val === true/false} in those cases.
+ * @return {boolean}
+ */
+proto.ns.DeviceProfile.prototype.getSyncSecurityContextOnJoin = function() {
+  return /** @type {boolean} */ (jspb.Message.getFieldProto3(this, 23, false));
+};
+
+
+/** @param {boolean} value  */
+proto.ns.DeviceProfile.prototype.setSyncSecurityContextOnJoin = function(value) {
+  jspb.Message.setField(this, 23, value);
 };
 
 

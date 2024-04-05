@@ -147,6 +147,12 @@ message DeviceProfile {
     // In case this is left blank, or is configured to a non-existing ADR
     // algorithm (plugin), then it falls back to 'default'.
     string adr_algorithm_id = 21;
+
+    // Experimental
+    bool save_GW_RX_on_join = 22;
+
+    // Experimental
+    bool sync_security_context_on_join = 23;
 }
 
 message RoutingProfile {

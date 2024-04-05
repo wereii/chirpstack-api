@@ -175,6 +175,12 @@ export class DeviceProfile extends jspb.Message {
   getAdrAlgorithmId(): string;
   setAdrAlgorithmId(value: string): void;
 
+  getSaveGwRxOnJoin(): boolean;
+  setSaveGwRxOnJoin(value: boolean): void;
+
+  getSyncSecurityContextOnJoin(): boolean;
+  setSyncSecurityContextOnJoin(value: boolean): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): DeviceProfile.AsObject;
   static toObject(includeInstance: boolean, msg: DeviceProfile): DeviceProfile.AsObject;
@@ -208,6 +214,8 @@ export namespace DeviceProfile {
     rfRegion: string,
     supports32bitFCnt: boolean,
     adrAlgorithmId: string,
+    saveGwRxOnJoin: boolean,
+    syncSecurityContextOnJoin: boolean,
   }
 }
 
