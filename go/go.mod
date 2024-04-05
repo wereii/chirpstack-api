@@ -1,6 +1,6 @@
-module github.com/brocaar/chirpstack-api/go/v3
+module github.com/wereii/chirpstack-api/go/v3
 
-go 1.16
+go 1.17
 
 require (
 	github.com/golang/protobuf v1.3.5
@@ -12,4 +12,8 @@ require (
 	gopkg.in/yaml.v2 v2.2.3 // indirect
 )
 
-replace github.com/brocaar/chirpstack-api/go/v3 => github.com/wereii/chirpstack-api/go/v3 v3.9.8-0.20240405140519-369c7791b5ca
+require (
+	github.com/ghodss/yaml v1.0.0 // indirect
+	github.com/golang/glog v0.0.0-20160126235308-23def4e6c14b // indirect
+	golang.org/x/text v0.3.0 // indirect
+)
