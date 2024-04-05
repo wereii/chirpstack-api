@@ -13,6 +13,13 @@ RUN cp -r $(go list -f '{{ .Dir }}' github.com/grpc-ecosystem/grpc-gateway/proto
 FROM node:12
 
 ENV PROJECT_PATH=/chirpstack-api
+
+# Update stretch repositories
+RUN sed -i -e 's/deb.debian.org/archive.debian.org/g' \
+           -e 's|security.debian.org|archive.debian.org/|g' \
+           -e '/stretch-updates/d' /etc/apt/sources.list
+
+
 RUN apt update && apt install -y protobuf-compiler libprotobuf-dev
 
 RUN mkdir -p $PROJECT_PATH
