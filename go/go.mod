@@ -11,3 +11,5 @@ require (
 	google.golang.org/grpc v1.28.0
 	gopkg.in/yaml.v2 v2.2.3 // indirect
 )
+
+replace github.com/brocaar/chirpstack-api/go/v3 => github.com/wereii/chirpstack-api/go/v3 v3.9.8-0.20240405140519-369c7791b5ca
