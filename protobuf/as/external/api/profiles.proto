@@ -202,4 +202,10 @@ message DeviceProfile {
     // In case this is left blank, or is configured to a non-existing ADR
     // algorithm (plugin), then it falls back to 'default'.
     string adr_algorithm_id = 31 [json_name = "adrAlgorithmID"];
+
+    // Save RXInfo on Join Request
+    bool save_rxinfo_on_join = 32;
+
+    // Sync Device Session on Join Request;
+    bool sync_device_session_on_join = 33;
 }

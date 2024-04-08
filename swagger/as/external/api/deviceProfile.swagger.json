@@ -347,6 +347,16 @@
         "adrAlgorithmID": {
           "type": "string",
           "description": "ADR algorithm ID.\nIn case this is left blank, or is configured to a non-existing ADR\nalgorithm (plugin), then it falls back to 'default'."
+        },
+        "saveRxinfoOnJoin": {
+          "type": "boolean",
+          "format": "boolean",
+          "title": "Save RXInfo on Join Request"
+        },
+        "syncDeviceSessionOnJoin": {
+          "type": "boolean",
+          "format": "boolean",
+          "title": "Sync Device Session on Join Request;"
         }
       }
     },

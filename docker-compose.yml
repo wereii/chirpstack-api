@@ -1,64 +1,63 @@
-version: "2"
 services:
   chirpstack-api-go:
     build:
       context: .
       dockerfile: Dockerfile-go
-    command: bash -c "cd go && make all"
+    command: bash -c "cd go && make -B all"
     volumes:
-      - ./:/chirpstack-api
+      - ./:/chirpstack-api:rw
   chirpstack-api-swagger:
     build:
       context: .
       dockerfile: Dockerfile-go
-    command: bash -c "cd swagger && make all"
+    command: bash -c "cd swagger && make -B all"
     volumes:
-      - ./:/chirpstack-api
+      - ./:/chirpstack-api:rw
   chirpstack-api-js:
     environment:
-      - VERSION=3.12.4
+      - VERSION=3.99.0
     build:
       context: .
       dockerfile: Dockerfile-js
-    command: bash -c "cd js && make all"
+    command: bash -c "cd js && make -B all"
     volumes:
-      - ./:/chirpstack-api
+      - ./:/chirpstack-api:rw
   chirpstack-api-rust:
     environment:
-      - VERSION=3.12.4
+      - VERSION=3.99.0
     build:
       context: .
       dockerfile: Dockerfile-rust
     command: bash -c "cd rust && make all"
     volumes:
-      - ./:/chirpstack-api
+      - ./:/chirpstack-api:rw
   chirpstack-api-python:
     environment:
-      - VERSION=3.12.4
+      - VERSION=3.99.0
     build:
       context: .
       dockerfile: Dockerfile-python
     command: bash -c "cd python && make all"
     volumes:
-      - ./:/chirpstack-api
+      - ./:/chirpstack-api:rw
   chirpstack-api-java:
     environment:
-      - VERSION=3.12.4
+      - VERSION=3.99.0
     build:
       context: .
       dockerfile: Dockerfile-java
     command: bash -c "cd java && make all"
     volumes:
-      - ./:/chirpstack-api
+      - ./:/chirpstack-api:rw
   chirpstack-api-java-current-user:
     user: ${CURRENT_UID}
     environment:
-      - VERSION=3.12.4
+      - VERSION=3.99.0
       - MAVEN_CONFIG=/var/maven/.m2
     build:
       context: .
       dockerfile: Dockerfile-java
     command: bash -c "cd java && make -f Makefile-user all"
     volumes:
-      - ./:/chirpstack-api
+      - ./:/chirpstack-api:rw
       - ${CURRENT_HOME}/.m2:/var/maven/.m2

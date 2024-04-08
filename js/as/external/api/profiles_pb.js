@@ -916,7 +916,9 @@ proto.api.DeviceProfile.toObject = function(includeInstance, msg) {
     geolocMinBufferSize: msg.getGeolocMinBufferSize(),
     tagsMap: (f = msg.getTagsMap(true)) ? f.toArray() : [],
     uplinkInterval: (f = msg.getUplinkInterval()) && google_protobuf_duration_pb.Duration.toObject(includeInstance, f),
-    adrAlgorithmId: msg.getAdrAlgorithmId()
+    adrAlgorithmId: msg.getAdrAlgorithmId(),
+    saveRxinfoOnJoin: msg.getSaveRxinfoOnJoin(),
+    syncDeviceSessionOnJoin: msg.getSyncDeviceSessionOnJoin()
   };
 
   if (includeInstance) {
@@ -1079,6 +1081,14 @@ proto.api.DeviceProfile.deserializeBinaryFromReader = function(msg, reader) {
     case 31:
       var value = /** @type {string} */ (reader.readString());
       msg.setAdrAlgorithmId(value);
+      break;
+    case 32:
+      var value = /** @type {boolean} */ (reader.readBool());
+      msg.setSaveRxinfoOnJoin(value);
+      break;
+    case 33:
+      var value = /** @type {boolean} */ (reader.readBool());
+      msg.setSyncDeviceSessionOnJoin(value);
       break;
     default:
       reader.skipField();
@@ -1330,6 +1340,20 @@ proto.api.DeviceProfile.prototype.serializeBinaryToWriter = function (writer) {
   if (f.length > 0) {
     writer.writeString(
       31,
+      f
+    );
+  }
+  f = this.getSaveRxinfoOnJoin();
+  if (f) {
+    writer.writeBool(
+      32,
+      f
+    );
+  }
+  f = this.getSyncDeviceSessionOnJoin();
+  if (f) {
+    writer.writeBool(
+      33,
       f
     );
   }
@@ -1835,6 +1859,40 @@ proto.api.DeviceProfile.prototype.getAdrAlgorithmId = function() {
 /** @param {string} value  */
 proto.api.DeviceProfile.prototype.setAdrAlgorithmId = function(value) {
   jspb.Message.setField(this, 31, value);
+};
+
+
+/**
+ * optional bool save_rxinfo_on_join = 32;
+ * Note that Boolean fields may be set to 0/1 when serialized from a Java server.
+ * You should avoid comparisons like {@code val === true/false} in those cases.
+ * @return {boolean}
+ */
+proto.api.DeviceProfile.prototype.getSaveRxinfoOnJoin = function() {
+  return /** @type {boolean} */ (jspb.Message.getFieldProto3(this, 32, false));
+};
+
+
+/** @param {boolean} value  */
+proto.api.DeviceProfile.prototype.setSaveRxinfoOnJoin = function(value) {
+  jspb.Message.setField(this, 32, value);
+};
+
+
+/**
+ * optional bool sync_device_session_on_join = 33;
+ * Note that Boolean fields may be set to 0/1 when serialized from a Java server.
+ * You should avoid comparisons like {@code val === true/false} in those cases.
+ * @return {boolean}
+ */
+proto.api.DeviceProfile.prototype.getSyncDeviceSessionOnJoin = function() {
+  return /** @type {boolean} */ (jspb.Message.getFieldProto3(this, 33, false));
+};
+
+
+/** @param {boolean} value  */
+proto.api.DeviceProfile.prototype.setSyncDeviceSessionOnJoin = function(value) {
+  jspb.Message.setField(this, 33, value);
 };
 
 

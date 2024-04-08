@@ -215,6 +215,12 @@ export class DeviceProfile extends jspb.Message {
   getAdrAlgorithmId(): string;
   setAdrAlgorithmId(value: string): void;
 
+  getSaveRxinfoOnJoin(): boolean;
+  setSaveRxinfoOnJoin(value: boolean): void;
+
+  getSyncDeviceSessionOnJoin(): boolean;
+  setSyncDeviceSessionOnJoin(value: boolean): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): DeviceProfile.AsObject;
   static toObject(includeInstance: boolean, msg: DeviceProfile): DeviceProfile.AsObject;
@@ -258,6 +264,8 @@ export namespace DeviceProfile {
     tagsMap: Array<[string, string]>,
     uplinkInterval?: google_protobuf_duration_pb.Duration.AsObject,
     adrAlgorithmId: string,
+    saveRxinfoOnJoin: boolean,
+    syncDeviceSessionOnJoin: boolean,
   }
 }
 
